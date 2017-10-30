@@ -1,0 +1,15 @@
+@import 'colors';
+
+// ----- Utility -----
+.small-padding {
+  padding: 4px;
+}
+
+// ----- Bulma -----
+$colors: (
+    "primary": ($primary, $primary-invert)
+);
+
+// Import Bulma
+@import "~bulma";
+@import "~buefy/src/scss/buefy";

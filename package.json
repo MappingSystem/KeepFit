@@ -4,17 +4,20 @@
   "description": "Create a fitness data dashboard from a Google spreadsheet",
   "author": "Nuno M. <greven.pt@gmail.com>",
   "private": true,
+  "homepage": "https://greven.github.io/KeepFit",
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "npm run dev",
     "build": "node build/build.js",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "test": "npm run unit",
-    "lint": "eslint --ext .js,.vue src test/unit/specs"
+    "lint": "eslint --ext .js,.vue src test/unit/specs",
+    "deploy": "node ./node_modules/vue-gh-pages/index.js"
   },
   "dependencies": {
     "moment": "^2.19.1",
     "vue": "^2.5.2",
+    "vue-gh-pages": "^1.6.2",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.0"
   },

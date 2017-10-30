@@ -1,6 +1,6 @@
-# keepfit
+# KeepFit
 
-> Create a dashboard of my fitness data from a Google spreadsheet
+> Create a simple dashboard to track my fitness data using Google spreadsheets as the source.
 
 ## Build Setup
 

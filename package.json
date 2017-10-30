@@ -4,7 +4,7 @@
   "description": "Create a fitness data dashboard from a Google spreadsheet",
   "author": "Nuno M. <greven.pt@gmail.com>",
   "private": true,
-  "homepage": "https://greven.github.io/KeepFit",
+  "homepage": "https://nuno.site/KeepFit/",
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "npm run dev",

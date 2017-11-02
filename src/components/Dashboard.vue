@@ -8,7 +8,11 @@
             <div class="level-item has-text-centered">
               <div>
                 <p class="heading">Weight</p>
-                <p class="title">{{ goals.weight.current }} <span class="has-text-grey-light">kg</span></p>
+                <p class="title">
+                  <span :class="isClose(goals.weight.current, goals.weight.goal)">
+                    {{ goals.weight.current }}</span>
+                  <span class="has-text-grey-light">kg</span>
+                </p>
               </div>
             </div>
             <div class="level-item has-text-centered">
@@ -159,6 +163,9 @@ export default {
       } else {
         return 'fa-minus'
       }
+    },
+    isClose (current, goal) {
+      return ((1 - (goal / current)) / 100) < 10 ? 'has-text-success' : false
     }
   },
   computed: {

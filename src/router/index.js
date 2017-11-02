@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Weight from '@/components/Weight'
+import Dashboard from '@/components/Dashboard'
 
 Vue.use(Router)
 
@@ -8,8 +8,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Weight',
-      component: Weight
+      name: 'Dashboard',
+      component: Dashboard
     }
   ]
 })

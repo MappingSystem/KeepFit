@@ -11,43 +11,30 @@ const API_KEY = 'AIzaSyBWCHtr1MZnTJr74whmSOiTWYVRIABEZHE'
 let BASE_URL = GSX_URL + '/' + SPREADSHEET_ID + '/values/'
 
 const API_URL = {
-  weight: BASE_URL + 'Weight!A2:F999' + '?key=' + API_KEY,
-  waist: BASE_URL + 'Waist!A2:B999' + '?key=' + API_KEY,
+  measures: BASE_URL + 'Measures!A2:I999' + '?key=' + API_KEY,
   goals: BASE_URL + 'Goals!A2:C5' + '?key=' + API_KEY
 }
 
 export default new Vuex.Store({
   state: {
-    dateLoaded: {
-      weight: false,
-      waist: false,
-      goals: false
-    },
+    dateLoaded: false,
     goals: {
       weight: {},
-      waist: {}
+      waist: {},
+      fat: {},
+      muscle: {}
     },
-    measures: {
-      weight: {},
-      waist: {}
-    }
+    measures: {}
   },
   actions: {
-    getWeightData: ({ commit }) => {
-      Vue.http.get(API_URL.weight)
+    getMeasures: ({ commit }) => {
+      Vue.http.get(API_URL.measures)
         .then(response => {
           let data = response.body.values
-          commit('GET_WEIGHT', data)
+          commit('GET_MEASURES', data)
         })
     },
-    getWaistData: ({ commit }) => {
-      Vue.http.get(API_URL.waist)
-        .then(response => {
-          let data = response.body.values
-          commit('GET_WAIST', data)
-        })
-    },
-    getGoalsData: ({ commit }) => {
+    getGoals: ({ commit }) => {
       Vue.http.get(API_URL.goals)
         .then(response => {
           let data = response.body.values
@@ -56,18 +43,15 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    GET_WEIGHT (state, data) {
-      state.measures.weight = data
-      state.dateLoaded.weight = true
-    },
-    GET_WAIST (state, data) {
-      state.measures.waist = data
-      state.dateLoaded.waist = true
+    GET_MEASURES (state, data) {
+      state.measures = data
+      state.dateLoaded = true
     },
     GET_GOALS (state, data) {
       state.goals.weight = data[0]
       state.goals.waist = data[1]
-      state.dateLoaded.goals = true
+      state.goals.fat = data[2]
+      state.goals.muscle = data[3]
     }
   }
 })

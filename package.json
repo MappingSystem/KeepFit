@@ -12,7 +12,7 @@
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "test": "npm run unit",
     "lint": "eslint --ext .js,.vue src test/unit/specs",
-    "deploy": "node ./node_modules/vue-gh-pages/index.js"
+    "deploy": ""
   },
   "dependencies": {
     "moment": "^2.19.1",

@@ -1,8 +1,12 @@
 @import 'colors';
 
+body {
+  background-color: $bg-color;
+}
+
 // ----- Utility -----
 .small-padding {
-  padding: 4px;
+  padding: 8px;
 }
 
 // ----- Bulma -----

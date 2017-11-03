@@ -1,4 +1,5 @@
 @import 'colors';
+@import 'mixins';
 
 body {
   background-color: $bg-color;
@@ -11,7 +12,8 @@ body {
 
 // ----- Bulma -----
 $colors: (
-    "primary": ($primary, $primary-invert)
+    "primary": ($primary, $primary-invert),
+    "success": ($success, $success-invert)
 );
 
 // Import Bulma

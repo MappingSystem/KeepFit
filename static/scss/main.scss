@@ -1,21 +1,7 @@
 @import 'colors';
+@import 'variables';
 @import 'mixins';
 
-body {
-  background-color: $bg-color;
-}
-
-// ----- Utility -----
-.small-padding {
-  padding: 8px;
-}
-
-// ----- Bulma -----
-$colors: (
-    "primary": ($primary, $primary-invert),
-    "success": ($success, $success-invert)
-);
-
-// Import Bulma
-@import "~bulma";
-@import "~buefy/src/scss/buefy";
+// body {
+//   background-color: $bg-color;
+// }

@@ -1,7 +1,9 @@
-$bg-color: #f7f7f7;
+// Global colors
+// $bg-color: #f7f7f7;
 
-// ----- Buma -----
-$primary: #00aaff;
-$primary-invert: findColorInvert($primary);
-$success: #00a87b;
-$success-invert: findColorInvert($success);
+// Bulma colors
+@import "~bulma/sass/utilities/initial-variables";
+
+$danger: rgb(250, 65, 65);
+$success: rgb(39, 200, 101);
+$warning: $yellow;

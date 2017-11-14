@@ -11,6 +11,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~bulma/sass/utilities/_all";
-@import "./static/scss/main"
+@import "../static/scss/main";
+@import "~bulma/bulma";
+@import "~animate.css/animate.min.css";
 </style>

@@ -4,7 +4,17 @@ export default {
   SET_ITEMS: (state, { items }) => {
     items.map(item => {
       if (item) {
-        Vue.set(state.items, item[0], item)
+        Vue.set(state.items, item[0], {
+          id: item[0],
+          date: item[1],
+          weight: item[2],
+          change: item[3],
+          bmi: item[4],
+          waist: item[5],
+          fat: item[6],
+          muscle: item[7],
+          note: item[8]
+        })
       }
     })
   },

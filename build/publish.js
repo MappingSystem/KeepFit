@@ -1,10 +1,10 @@
+'use strict'
 // Publish to Github Pages
 var fs = require('fs');
 var exec = require('child_process').exec;
 var ncp = require('ncp').ncp;
 var rimraf = require('rimraf');
 var path = require('path');
-var ghpages = require('gh-pages');
 
 function publish () {
   exec('npm run build', function() {

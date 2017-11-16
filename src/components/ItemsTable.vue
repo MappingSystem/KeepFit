@@ -1,26 +1,56 @@
 <template>
-  <table class="table">
-    <thead>
-      <tr>
-        <th><abbr title="ID">ID</abbr></th>
-        <th><abbr title="Weight">Weight</abbr></th>
-        <th><abbr title="Body Mass Index">BMI</abbr></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th>1</th>
-        <td>38</td>
-        <td>23</td>
-      </tr>
-    </tbody>
-  </table>
+  <section class="wrapper">
+
+    <!-- Busy Indicator -->
+    <div id="busy" class="level" v-if="loading">
+      <div class="level-item">
+        <div class="icon is-medium">
+          <i class="fal fa-3x fa-spinner-third fa-spin"></i>
+        </div>
+      </div>
+    </div>
+
+    <table v-else
+      class="animated bounceInUp table is-striped is-hoverable is-fullwidth">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Date</th>
+          <th>Weight</th>
+          <th>Change</th>
+          <th>BMI</th>
+          <th>Waist</th>
+          <th>Fat</th>
+          <th>Muscle</th>
+          <th>Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="item in items" :key="item.id">
+          <td>{{ item.id }}</td>
+          <td>{{ item.date }}</td>
+          <td>{{ item.weight }}</td>
+          <td>{{ item.change }}</td>
+          <td>{{ item.bmi }}</td>
+          <td>{{ item.waist }}</td>
+          <td>{{ item.fat }}</td>
+          <td>{{ item.muscle }}</td>
+          <td>{{ item.note }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </section>
 </template>
 
 <script>
 export default {
   name: 'table',
   props: ['range'],
+
+  data: () => ({
+    loading: true
+  }),
 
   computed: {
     items () {
@@ -40,3 +70,15 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+
+  .wrapper {
+    margin-top: 1.5rem;
+  }
+
+  #busy {
+    min-height: 400px;
+  }
+</style>
+

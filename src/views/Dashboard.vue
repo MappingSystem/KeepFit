@@ -2,10 +2,10 @@
   <section class="section">
     <div class="container">
 
-      <div id="header" class="container">  <!-- Header -->
+      <header id="header" class="container">
         <h1 class="title">Fitness Tracking</h1>
         <p class="subtitle has-text-grey">Google Sheets as Source</p>
-      </div>  <!-- Header -->
+      </header>
 
       <indicators range="A2:E6"></indicators>
 

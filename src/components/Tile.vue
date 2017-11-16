@@ -16,11 +16,11 @@
         <div class="level">
           <div class="level-right">
             <p class="title">
-              <span class="change-icon">
+              <span class="is-size-4">
                 <i class="animated far" :class="change"></i>
               </span>
               {{ item.current }}
-              <span class="unit has-text-grey-light" v-if="item.unit">
+              <span class="is-size-4 has-text-weight-light has-text-grey-light" v-if="item.unit">
                 {{ item.unit }}
               </span>
             </p>
@@ -102,14 +102,6 @@ export default {
 
   .goal {
     cursor: default;
-  }
-
-  .change-icon {
-    font-size: .8em;
-  }
-
-  .unit {
-    font-size: 0.8em;
   }
 
   .has-text-success-darker {

@@ -8,7 +8,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    items: {/* [id: number]: Item */},
+    items: [/* [id: number]: Item */],
     goals: {/* [type: string]: Goal */}
   },
   actions,

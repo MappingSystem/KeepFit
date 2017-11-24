@@ -1,9 +1,21 @@
-// Global colors
-// $bg-color: #f7f7f7;
-
 // Bulma colors
 @import "~bulma/sass/utilities/initial-variables";
 
-$danger: rgb(250, 65, 65);
-$success: rgb(39, 200, 101);
+// Bulma Colors
+$primary: $turquoise;
+$danger: rgb(241, 76, 76);
+$success: rgb(80, 175, 115);
 $warning: $yellow;
+$info: $cyan;
+$link: $blue;
+$white: $white;
+$black: $black;
+$light: $white-ter;
+$dark: $grey-darker;
+$violet: rgb(128, 82, 207);
+$orange: rgb(255, 162, 40);
+
+// Global colors
+
+$bg-color: rgb(250, 250, 250);
+$font-color: $danger;

@@ -1,6 +1,6 @@
 <template>
   <section class="section">
-    <div class="container">
+    <div class="container wrapper">
 
       <header id="header" class="container">
         <h1 class="title">Fitness Tracking</h1>
@@ -26,8 +26,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
-#header {
-  margin-bottom: 1.5rem;
-}
+  #header {
+    margin-bottom: 1.5rem;
+  }
 </style>
 

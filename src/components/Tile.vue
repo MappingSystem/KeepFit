@@ -17,7 +17,7 @@
           <div class="level-right">
             <p class="title">
               <span class="is-size-4">
-                <i class="animated far" :class="change"></i>
+                <i class="change-icon animated far" :class="change"></i>
               </span>
               {{ item.current }}
               <span class="is-size-4 has-text-weight-light has-text-grey-light" v-if="item.unit">
@@ -35,11 +35,13 @@
 <script>
 export default {
   name: 'kpi-tile',
-  props: ['item'],
+  props: {
+    item: {}
+  },
 
   data: () => ({
     threshold: {
-      low: 10,
+      low: 5,
       medium: 25,
       high: 50
     },
@@ -102,6 +104,10 @@ export default {
 
   .goal {
     cursor: default;
+  }
+
+  .change-icon {
+    animation-delay: 1s;
   }
 
   .has-text-success-darker {

@@ -13,7 +13,9 @@ import Tile from './Tile'
 export default {
   name: 'indicators',
   components: { Tile },
-  props: ['range'],
+  props: {
+    range: String
+  },
 
   data: () => ({
     loading: true

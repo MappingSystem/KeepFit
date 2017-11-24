@@ -4,7 +4,7 @@ export default {
   SET_ITEMS: (state, { items }) => {
     items.map(item => {
       if (item) {
-        Vue.set(state.items, item[0], {
+        state.items.push({
           id: item[0],
           date: item[1],
           weight: item[2],

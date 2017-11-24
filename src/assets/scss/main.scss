@@ -1,7 +1,12 @@
 @import 'colors';
 @import 'variables';
+@import 'animations';
 @import 'mixins';
 
-html, body {
-  height: 100%;
+body {
+  color: $font-color;
+  section.section {
+    min-height: 100vh;
+    background-color: $bg-color;
+  }
 }

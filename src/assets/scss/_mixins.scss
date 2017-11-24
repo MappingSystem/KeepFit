@@ -1,4 +1,4 @@
-@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+@mixin box-shadow ($top, $left, $blur, $color, $inset: false) {
   @if $inset {
     -webkit-box-shadow:inset $top $left $blur $color;
     -moz-box-shadow:inset $top $left $blur $color;
@@ -8,4 +8,35 @@
     -moz-box-shadow: $top $left $blur $color;
     box-shadow: $top $left $blur $color;
   }
+}
+
+// Animations
+
+@mixin spin ($duration) {
+  -webkit-animation: spin $duration infinite linear;
+  animation: spin $duration infinite linear;
+}
+
+@mixin spinner ($duration: 1s, $size: 20px, $color: #0067dd, $border: 2px solid #ccc) {
+  @include spin($duration);
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: $size;
+  height: $size;
+  margin-top: -15px;
+  margin-left: -15px;
+  border-radius: 50%;
+  border: $border;
+  border-top-color: $color;
+}
+
+@mixin spinner_rainbow ($duration: 1s, $size: 20px) {
+  @include spinner($duration, $size);
+  border: 2px solid $danger;
+  border-top-color: $info;
+  border-right-color: $success;
+  border-bottom-color: $warning;
 }

@@ -4,6 +4,8 @@
 
 Demo: https://greven.github.io/KeepFit
 
+![Screenshot 1](/static/images/screenshot_1.png "Preview")
+
 ## Build Setup
 
 ``` bash
@@ -18,6 +20,9 @@ npm run build
 
 # build for production and view the bundle analyzer report
 npm run build --report
+
+# publishing docs github
+npm run publish
 
 # run unit tests
 npm run unit

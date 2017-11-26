@@ -21,8 +21,8 @@ npm run build
 # build for production and view the bundle analyzer report
 npm run build --report
 
-# publish to github
-npm run publish
+# deploy to github
+npm run deploy
 
 # run unit tests
 npm run unit

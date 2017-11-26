@@ -4,7 +4,7 @@
 
       <header id="header" class="container">
         <h1 class="title">Fitness Tracking</h1>
-        <p class="subtitle has-text-grey">Google Sheets as Source</p>
+        <p class="subtitle has-text-grey">Google Sheets as a Service</p>
       </header>
 
       <indicators range="A2:E6"></indicators>

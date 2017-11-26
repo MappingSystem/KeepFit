@@ -237,12 +237,10 @@ export default {
     &::before {
       content: "";
       position: absolute;
-      top: 1px;
+      top: 0;
       left: 0;
-      bottom: 1px;
+      bottom: 0;
       border-width: 2px;
-      border-top-right-radius: 2px;
-      border-bottom-right-radius: 2px;
       border-style: solid;
       border-color: transparent;
     }

@@ -4,7 +4,7 @@
   "description": "Create a fitness data dashboard from a Google spreadsheet",
   "author": "Nuno M. <greven.pt@gmail.com>",
   "private": true,
-  "homepage": "https://nuno.site/KeepFit/",
+  "homepage": "https://github.com/greven/KeepFit",
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "npm run dev",
@@ -12,7 +12,7 @@
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "test": "npm run unit",
     "lint": "eslint --ext .js,.vue src test/unit/specs",
-    "publish": "node build/publish.js"
+    "deploy": "node ./node_modules/vue-gh-pages/index.js"
   },
   "dependencies": {
     "animate.css": "^3.5.2",
@@ -78,10 +78,11 @@
     "rimraf": "^2.6.2",
     "sass-loader": "^6.0.6",
     "semver": "^5.3.0",
-    "shelljs": "^0.7.6",
+    "shelljs": "^0.7.8",
     "sinon": "^4.0.0",
     "sinon-chai": "^2.8.0",
     "url-loader": "^0.5.8",
+    "vue-gh-pages": "^1.6.4",
     "vue-loader": "^13.3.0",
     "vue-style-loader": "^3.0.1",
     "vue-template-compiler": "^2.5.2",

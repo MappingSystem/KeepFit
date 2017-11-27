@@ -28,7 +28,7 @@
       </thead>
 
       <tbody>
-        <tr v-for="item in sortedItems" :key="item.id" :class="statusClass(item.bmi)">
+        <tr v-for="item in items" :key="item.id" :class="statusClass(item.bmi)">
           <td class="item-id has-text-centered has-text-grey is-hidden-mobile"
             :class="statusClass(item.bmi)">
             {{ item.id }}
@@ -78,16 +78,14 @@ export default {
   }),
 
   computed: {
-    ...mapGetters([
-      'items',
-      'sortedItems'
-    ])
+    ...mapGetters(['items'])
   },
 
   methods: {
     loadData () {
-      this.$store.dispatch('FETCH_ITEMS', { range: this.range })
-        .then(() => { this.loading = false })
+      this.$store.dispatch('FETCH_ITEMS', { range: this.range }).then(() => {
+        this.loading = false
+      })
     },
     // color change based on sign
     setChangeColor (item) {
@@ -140,144 +138,163 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "../assets/scss/main";
+@import "../assets/scss/main";
 
-  .item-bmi {
-    &.is-underweight {
-      color: $link;
-    }
+.item-bmi {
+  &.is-underweight {
+    color: $link;
+  }
 
-    &.is-healthy {
-      color: $success;
-    }
+  &.is-healthy {
+    color: $success;
+  }
 
-    &.is-overweight {
-      color: $orange;
-    }
+  &.is-overweight {
+    color: $orange;
+  }
 
-    &.is-obese {
-      color: $danger;
-    }
+  &.is-obese {
+    color: $danger;
+  }
 
-    &.is-extremeobese {
-      color: $violet;
+  &.is-extremeobese {
+    color: $violet;
+  }
+}
+
+table.table {
+  border: 1px solid $dark;
+  border-radius: 0.25rem 0.25rem 0 0;
+  border-collapse: separate;
+  border-spacing: 0;
+
+  thead {
+    background-color: $dark;
+
+    th {
+      color: white;
+      border: none;
     }
   }
 
-  table.table {
-    border: 1px solid $dark;
-    border-radius: 0.25rem 0.25rem 0 0;
-    border-collapse: separate;
-    border-spacing: 0;
+  tbody {
+    tr {
+      &.is-underweight {
+        background: linear-gradient(
+          to left,
+          transparent 50%,
+          lighten($link, 42%) 50%
+        );
+        background-size: 200% 100%;
+        background-position: right bottom;
+      }
 
-    thead {
-      background-color: $dark;
+      &.is-healthy {
+        background: linear-gradient(
+          to left,
+          transparent 50%,
+          lighten($success, 44%) 50%
+        );
+        background-size: 200% 100%;
+        background-position: right bottom;
+      }
 
-      th {
-        color: white;
-        border: none;
+      &.is-overweight {
+        background: linear-gradient(
+          to left,
+          transparent 50%,
+          lighten($orange, 38%) 50%
+        );
+        background-size: 200% 100%;
+        background-position: right bottom;
+      }
+
+      &.is-obese {
+        background: linear-gradient(
+          to left,
+          transparent 50%,
+          lighten($danger, 34%) 50%
+        );
+        background-size: 200% 100%;
+        background-position: right bottom;
+      }
+
+      &.is-extremeobese {
+        background: linear-gradient(
+          to left,
+          transparent 50%,
+          lighten($violet, 38%) 50%
+        );
+        background-size: 200% 100%;
+        background-position: right bottom;
+      }
+
+      &:nth-child(even) {
+        background-color: #f4f4f4;
+      }
+
+      &:hover {
+        background-position: left bottom;
       }
     }
+  }
+}
 
-    tbody {
-      tr {
-        &.is-underweight {
-          background: linear-gradient(to left, transparent 50%, lighten($link, 42%) 50%);
-          background-size: 200% 100%;
-          background-position: right bottom;
+.wrapper {
+  margin-top: 1.5rem;
+}
 
-        }
+#busy {
+  min-height: 400px;
+}
 
-        &.is-healthy {
-          background: linear-gradient(to left, transparent 50%, lighten($success, 44%) 50%);
-          background-size: 200% 100%;
-          background-position: right bottom;
-        }
+.item-id {
+  position: relative;
 
-        &.is-overweight {
-          background: linear-gradient(to left, transparent 50%, lighten($orange, 38%) 50%);
-          background-size: 200% 100%;
-          background-position: right bottom;
-        }
-
-        &.is-obese {
-          background: linear-gradient(to left, transparent 50%, lighten($danger, 34%) 50%);
-          background-size: 200% 100%;
-          background-position: right bottom;
-        }
-
-        &.is-extremeobese {
-          background: linear-gradient(to left, transparent 50%, lighten($violet, 38%) 50%);
-          background-size: 200% 100%;
-          background-position: right bottom;
-        }
-
-        &:nth-child(even) {
-          background-color: #f4f4f4;
-        }
-
-        &:hover {
-          background-position: left bottom;
-        }
-      }
-    }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    border-width: 2px;
+    border-style: solid;
+    border-color: transparent;
   }
 
-  .wrapper {
-    margin-top: 1.5rem;
-  }
-
-  #busy {
-    min-height: 400px;
-  }
-
-  .item-id {
-    position: relative;
-
+  &.is-underweight {
     &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      border-width: 2px;
-      border-style: solid;
-      border-color: transparent;
-    }
-
-    &.is-underweight {
-      &::before {
-        border-color: $link;
-      }
-    }
-
-    &.is-healthy {
-      &::before {
-        border-color: $success;
-      }
-    }
-
-    &.is-overweight {
-      &::before {
-        border-color: $orange;
-      }
-    }
-
-    &.is-obese {
-      &::before {
-        border-color: $danger;
-      }
-    }
-
-    &.is-extremeobese {
-      &::before {
-        border-color: $violet;
-      }
+      border-color: $link;
     }
   }
 
-  .spinner:before {
-    @include spinner(750ms, 42px, darken($info, 10%));
+  &.is-healthy {
+    &::before {
+      border-color: $success;
+    }
   }
+
+  &.is-overweight {
+    &::before {
+      border-color: $orange;
+    }
+  }
+
+  &.is-obese {
+    &::before {
+      border-color: $danger;
+    }
+  }
+
+  &.is-extremeobese {
+    &::before {
+      border-color: $violet;
+    }
+  }
+}
+
+.spinner:before {
+  @include spinner(750ms, 42px, darken($info, 10%));
+}
 </style>
 

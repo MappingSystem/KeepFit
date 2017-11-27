@@ -2,7 +2,7 @@
 
 > Create a simple dashboard to track my fitness data using Google spreadsheets as the source.
 
-Demo: https://greven.github.io/KeepFit
+Demo [here](https://mifit-183416.firebaseapp.com/).
 
 ![Screenshot 1](/static/images/screenshot_1.png "Preview")
 

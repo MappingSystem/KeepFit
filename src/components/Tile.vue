@@ -57,14 +57,41 @@ export default {
   computed: {
     // css classes based on the change sign
     change () {
-      let change = this.item.change
+      const item = this.item
+      const change = parseFloat(item.change)
+
+      const symbol = {
+        up: 'fa-arrow-up',
+        down: 'fa-arrow-down',
+        neutral: 'fa-minus'
+      }
+
+      const color = {
+        green: 'has-text-success',
+        red: 'has-text-danger',
+        neutral: 'has-text-grey-light'
+      }
+
+      const animation = {
+        up: 'bounceInUp',
+        down: 'bounceInDown',
+        neutral: 'flash'
+      }
 
       if (change > 0) {
-        return 'bounceInUp fa-arrow-up has-text-danger'
+        if (item.type === 'Muscle') {
+          return [symbol.up, color.green, animation.up].join(' ')
+        } else {
+          return [symbol.up, color.red, animation.up].join(' ')
+        }
       } else if (change < 0) {
-        return 'bounceInDown fa-arrow-down has-text-success'
+        if (item.type === 'Muscle') {
+          return [symbol.down, color.red, animation.down].join(' ')
+        } else {
+          return [symbol.down, color.green, animation.down].join(' ')
+        }
       }
-      return 'flash fa-minus has-text-grey-light'
+      return [symbol.neutral, color.neutral, animation.neutral].join(' ')
     },
 
     // sets the tile classes

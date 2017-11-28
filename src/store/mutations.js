@@ -18,6 +18,7 @@ export default {
       }
     })
   },
+
   SET_GOALS: (state, { goals }) => {
     goals.map(goal => {
       if (goal) {
